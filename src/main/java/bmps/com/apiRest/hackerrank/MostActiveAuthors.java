@@ -25,7 +25,6 @@ public class MostActiveAuthors {
     public List<String> authors(int threshold) throws URISyntaxException, IOException, InterruptedException {
         var jackson = new ObjectMapper();
 
-
         HttpClient client = HttpClient.newHttpClient();
         String response = client
                 .send(HttpRequest.newBuilder(new URI("https://jsonmock.hackerrank.com/api/article_users" ))
@@ -57,7 +56,7 @@ public class MostActiveAuthors {
                                             .build(),
                                     HttpResponse.BodyHandlers.ofString())
                             .thenApply(HttpResponse::body))
-                    .collect(Collectors.toList());
+                    .toList();
 
             var result = futures.stream().map(CompletableFuture::join)
                     .map(curResponse -> {
@@ -67,7 +66,7 @@ public class MostActiveAuthors {
                             throw new RuntimeException(e);
                         }
                     })
-                    .collect(Collectors.toUnmodifiableList());
+                    .toList();
 
             authorsResponses.addAll(result);
         }

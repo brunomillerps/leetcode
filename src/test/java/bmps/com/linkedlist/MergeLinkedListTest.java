@@ -24,4 +24,21 @@ class MergeLinkedListTest {
         assertEquals(3, res.next.next.val);
         assertEquals(4, res.next.next.next.val);
     }
+
+    @Test
+    void mergeTwoLists_recursively() {
+
+        var l1 = new ListNode<>(1);
+        var l2 = new ListNode<>(4);
+
+        l1.next = new ListNode<>(2);
+        l1.next.next = new ListNode<>(3);
+
+        var res = new MergeLinkedList().mergeRecursive(l2, l1);
+
+        assertEquals(1, res.val);
+        assertEquals(2, res.next.val);
+        assertEquals(3, res.next.next.val);
+        assertEquals(4, res.next.next.next.val);
+    }
 }

@@ -1,6 +1,5 @@
 package bmps.com.dsa.sort;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MergeSort {
@@ -23,9 +22,8 @@ public class MergeSort {
     }
 
     private void merge(int[] arr, int start, int mid, int end) {
-         int[] leftArr = Arrays.copyOfRange(arr, start, mid + 1);
-         int[] rightArr = Arrays.copyOfRange(arr, mid + 1, end + 1);
-
+        int[] leftArr = Arrays.copyOfRange(arr, start, mid + 1);
+        int[] rightArr = Arrays.copyOfRange(arr, mid + 1, end + 1);
 
         int i = 0; // left sub array
         int j = 0; // right sub array

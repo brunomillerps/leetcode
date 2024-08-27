@@ -27,7 +27,7 @@ public class MessageDeliveryService {
             String msg = messages.get(i);
             Integer ts = timestamp.get(i);
 
-            var lastTs = delivered.get(msg);
+            Integer lastTs = delivered.get(msg);
             if (lastTs == null || (ts - lastTs > k )) {
                 delivered.put(msg, ts);
                 result.add(ts + ":" + msg);
